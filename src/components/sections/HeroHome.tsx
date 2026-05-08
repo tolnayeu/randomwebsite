@@ -1,6 +1,6 @@
 import { HERO_SLIDESHOW, SITE } from "@/content/site";
 import { Container } from "@/components/Container";
-import { Button } from "@/components/ui/Button";
+import { MarketingButton } from "@/components/MarketingButton";
 import { HeroSlideshowBackground } from "@/components/sections/HeroSlideshowBackground";
 
 export function HeroHome() {
@@ -21,16 +21,16 @@ export function HeroHome() {
             tiszta alapanyagokkal.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Button href="/foglalas" variant="primary">
+            <MarketingButton href="/foglalas" variant="primary">
               Asztalfoglalás
-            </Button>
-            <Button
+            </MarketingButton>
+            <MarketingButton
               href="/etlap"
               variant="outline"
               className="border-white/30 text-white hover:border-[var(--accent)]"
             >
               Étlap megtekintése
-            </Button>
+            </MarketingButton>
           </div>
         </div>
       </Container>

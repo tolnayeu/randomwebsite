@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { SITE } from "@/content/site";
 import { cn } from "@/lib/cn";
-import { Button } from "@/components/ui/Button";
+import { MarketingButton } from "@/components/MarketingButton";
 import { Container } from "@/components/Container";
 import { trackEvent } from "@/lib/analytics";
 
@@ -71,12 +71,12 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden md:block">
-          <Button
+          <MarketingButton
             href="/foglalas"
             onClick={() => trackEvent("cta_foglalas_header")}
           >
             Asztalfoglalás
-          </Button>
+          </MarketingButton>
         </div>
 
         <button
@@ -127,7 +127,7 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Button
+          <MarketingButton
             href="/foglalas"
             className="mt-4 w-full"
             onClick={() => {
@@ -136,7 +136,7 @@ export function SiteHeader() {
             }}
           >
             Asztalfoglalás
-          </Button>
+          </MarketingButton>
         </nav>
       </div>
     </header>

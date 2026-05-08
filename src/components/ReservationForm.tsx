@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { SITE } from "@/content/site";
-import { Button } from "@/components/ui/Button";
+import { MarketingButton } from "@/components/MarketingButton";
 import { trackEvent } from "@/lib/analytics";
 
 const initial = {
@@ -174,14 +174,14 @@ export function ReservationForm() {
         </p>
       ) : null}
 
-      <Button
+      <MarketingButton
         type="submit"
         variant="primary"
         disabled={status === "loading"}
         className="w-full sm:w-auto"
       >
         {status === "loading" ? "Küldés…" : "Foglalás elküldése"}
-      </Button>
+      </MarketingButton>
     </form>
   );
 }

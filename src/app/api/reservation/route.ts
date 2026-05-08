@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { appendSubmission, type ReservationSubmission } from "@/lib/dashboard-store";
 
 type Body = {
   name?: string;
@@ -29,7 +30,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const payload = {
+  const payload: ReservationSubmission = {
     name,
     phone,
     email: body.email?.trim() ?? "",
@@ -42,6 +43,15 @@ export async function POST(request: Request) {
 
   if (process.env.NODE_ENV === "development") {
     console.info("[reservation]", payload);
+  }
+
+  try {
+    await appendSubmission(payload);
+  } catch {
+    return NextResponse.json(
+      { ok: false, error: "A foglalás mentése most nem sikerült." },
+      { status: 500 },
+    );
   }
 
   const webhook = process.env.RESERVATION_WEBHOOK_URL;

@@ -10,4 +10,12 @@ export function trackEvent(name: string, params?: Record<string, string>) {
   if (typeof w.gtag === "function") {
     w.gtag("event", name, params);
   }
+  if (!window.location.pathname.startsWith("/dashboard")) {
+    fetch("/api/dashboard/track-event", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, params }),
+      keepalive: true,
+    }).catch(() => {});
+  }
 }

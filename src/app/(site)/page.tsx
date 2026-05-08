@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { HeroHome } from "@/components/sections/HeroHome";
-import { Button } from "@/components/ui/Button";
+import { MarketingButton } from "@/components/MarketingButton";
 import { KENYER_IMAGE, SITE } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -27,9 +27,9 @@ export default function HomePage() {
             <div className="space-y-6 text-base leading-relaxed text-[var(--foreground-muted)]">
               <p>{SITE.story.paragraphs[0]}</p>
               <p>{SITE.story.paragraphs[2]}</p>
-              <Button href="/rolunk" variant="ghost" className="!px-0 text-[var(--accent)] hover:bg-transparent hover:text-[var(--foreground)]">
+              <MarketingButton href="/rolunk" variant="ghost" className="!px-0 text-[var(--accent)] hover:bg-transparent hover:text-[var(--foreground)]">
                 Teljes történet →
-              </Button>
+              </MarketingButton>
             </div>
           </div>
         </Container>
@@ -91,12 +91,12 @@ export default function HomePage() {
               részletekkel.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href={`tel:${SITE.phoneE164}`} variant="primary">
+              <MarketingButton href={`tel:${SITE.phoneE164}`} variant="primary">
                 {SITE.phoneDisplay}
-              </Button>
-              <Button href="/foglalas" variant="outline">
+              </MarketingButton>
+              <MarketingButton href="/foglalas" variant="outline">
                 Online foglalás
-              </Button>
+              </MarketingButton>
             </div>
             <p className="mt-6 text-xs text-[var(--foreground-muted)]">
               E-mail:{" "}
@@ -121,9 +121,9 @@ export default function HomePage() {
               Étlapunk folyamatosan újul – tekintse meg a legfrissebb fogásokat.
             </p>
           </div>
-          <Button href="/etlap" variant="primary">
+          <MarketingButton href="/etlap" variant="primary">
             Étlap
-          </Button>
+          </MarketingButton>
         </Container>
       </section>
     </>

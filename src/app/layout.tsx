@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda, DM_Sans } from "next/font/google";
+import { Bodoni_Moda, DM_Sans, Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { restaurantJsonLd } from "@/lib/jsonld";
 import { getSiteUrl } from "@/lib/site-url";
+import { cn } from "@/lib/utils";
+
+const geistMono = Geist_Mono({subsets:['latin'],variable:'--font-mono'});
+
+const interHeading = Inter({subsets:['latin'],variable:'--font-heading'});
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const bodoni = Bodoni_Moda({
   variable: "--font-bodoni",
@@ -56,7 +63,7 @@ export default function RootLayout({
   return (
     <html
       lang="hu"
-      className={`${bodoni.variable} ${dmSans.variable} h-full scroll-smooth antialiased`}
+      className={cn("h-full", "scroll-smooth", "antialiased", bodoni.variable, dmSans.variable, "font-mono", inter.variable, interHeading.variable, geistMono.variable)}
     >
       <head>
         <script
