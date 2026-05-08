@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Bodoni_Moda, DM_Sans, Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { restaurantJsonLd } from "@/lib/jsonld";
@@ -70,6 +72,8 @@ export default function RootLayout({
       </head>
       <body className="min-h-full bg-background text-foreground font-sans">
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
