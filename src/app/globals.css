@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0c0b09;
+  --foreground: #f4f1eb;
+  --foreground-muted: #a39e94;
+  --surface: #16140f;
+  --border: rgba(244, 241, 235, 0.12);
+  --accent: #c9a227;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bodoni), ui-serif, Georgia, serif;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 35%, transparent);
+  color: var(--foreground);
+}
