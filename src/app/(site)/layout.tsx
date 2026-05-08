@@ -8,7 +8,7 @@ export default function SiteLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="site-restaurant dark flex min-h-screen flex-col bg-background text-foreground">
+    <div className="dark site-marketing flex min-h-dvh flex-col bg-background text-foreground">
       <VisitTracker />
       <SiteHeader />
       <main className="flex-1 pt-[72px] md:pt-20">{children}</main>

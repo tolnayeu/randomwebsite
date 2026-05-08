@@ -3,13 +3,6 @@ import { Bodoni_Moda, DM_Sans, Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { restaurantJsonLd } from "@/lib/jsonld";
 import { getSiteUrl } from "@/lib/site-url";
-import { cn } from "@/lib/utils";
-
-const geistMono = Geist_Mono({subsets:['latin'],variable:'--font-mono'});
-
-const interHeading = Inter({subsets:['latin'],variable:'--font-heading'});
-
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const bodoni = Bodoni_Moda({
   variable: "--font-bodoni",
@@ -22,6 +15,10 @@ const dmSans = DM_Sans({
   subsets: ["latin", "latin-ext"],
   display: "swap",
 });
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
+const interHeading = Inter({ subsets: ["latin"], variable: "--font-heading", display: "swap" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
 
 const siteUrl = getSiteUrl();
 
@@ -63,7 +60,7 @@ export default function RootLayout({
   return (
     <html
       lang="hu"
-      className={cn("h-full", "scroll-smooth", "antialiased", bodoni.variable, dmSans.variable, "font-mono", inter.variable, interHeading.variable, geistMono.variable)}
+      className={`${bodoni.variable} ${dmSans.variable} ${inter.variable} ${interHeading.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
       <head>
         <script
@@ -71,7 +68,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full bg-background text-foreground font-sans">
+        {children}
+      </body>
     </html>
   );
 }

@@ -3,5 +3,12 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="bg-background min-h-screen">{children}</div>;
+  return (
+    <div
+      className="dashboard-coss isolate relative flex min-h-dvh flex-col bg-muted/35 font-sans antialiased text-foreground"
+      data-app="dashboard"
+    >
+      {children}
+    </div>
+  );
 }

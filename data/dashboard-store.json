@@ -1,0 +1,49 @@
+{
+  "visitsTotal": 15,
+  "visitsByDay": {
+    "2026-05-08": 15
+  },
+  "visitsByPath": {
+    "/": 11,
+    "/foglalas": 3,
+    "/kapcsolat": 1
+  },
+  "submissions": [
+    {
+      "name": "67szigma",
+      "phone": "+6767676767",
+      "email": "67géymin@outlookthewindow.cp",
+      "date": "2026-06-07",
+      "time": "09:11",
+      "guests": "6",
+      "message": "I think not",
+      "receivedAt": "2026-05-08T18:58:38.906Z"
+    }
+  ],
+  "analyticsEvents": [
+    {
+      "name": "cta_foglalas_header",
+      "at": "2026-05-08T18:57:40.453Z"
+    },
+    {
+      "name": "reservation_submit_attempt",
+      "at": "2026-05-08T18:58:38.837Z"
+    },
+    {
+      "name": "reservation_submit_success",
+      "at": "2026-05-08T18:58:38.914Z"
+    },
+    {
+      "name": "logo_click",
+      "at": "2026-05-08T19:04:42.932Z"
+    },
+    {
+      "name": "cta_foglalas_header",
+      "at": "2026-05-08T19:09:19.813Z"
+    },
+    {
+      "name": "logo_click",
+      "at": "2026-05-08T19:09:28.621Z"
+    }
+  ]
+}

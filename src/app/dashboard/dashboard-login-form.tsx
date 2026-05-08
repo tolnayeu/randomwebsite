@@ -13,6 +13,8 @@ import {
 import { Field } from "@/components/ui/field";
 import { FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
+import { Shield } from "lucide-react";
 
 export function DashboardLoginForm() {
   const router = useRouter();
@@ -43,14 +45,25 @@ export function DashboardLoginForm() {
   }
 
   return (
-    <div className="flex min-h-[70vh] flex-col items-center justify-center p-6">
-      <Card className="w-full max-w-md shadow-md">
-        <CardHeader>
-          <CardTitle>Vezérlőpult</CardTitle>
-          <CardDescription>Jelentkezzen be az oldal statisztikáihoz.</CardDescription>
+    <div className="flex flex-1 flex-col items-center justify-center gap-6 p-6">
+      <Card className="w-full max-w-md">
+        <CardHeader className="flex flex-col gap-6">
+          <span
+            className={cn(
+              "bg-muted text-muted-foreground ring-border flex size-12 items-center justify-center self-start rounded-xl ring-1",
+            )}
+          >
+            <Shield aria-hidden className="size-6" />
+          </span>
+          <div className="flex flex-col gap-2">
+            <CardTitle>Vezérlőpult</CardTitle>
+            <CardDescription>
+              Jelentkezzen be az analitikai összesítőhöz és a foglalásokhoz.
+            </CardDescription>
+          </div>
         </CardHeader>
         <CardPanel>
-          <form onSubmit={onSubmit} className="flex flex-col gap-4">
+          <form onSubmit={onSubmit} className="flex flex-col gap-5">
             <Field name="username">
               <FieldLabel htmlFor="dash-user">Felhasználónév</FieldLabel>
               <Input
@@ -81,7 +94,7 @@ export function DashboardLoginForm() {
                 {error}
               </p>
             ) : null}
-            <Button type="submit" className="w-full" loading={loading}>
+            <Button type="submit" className="w-full" size="lg" loading={loading}>
               Belépés
             </Button>
           </form>

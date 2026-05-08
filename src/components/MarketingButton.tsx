@@ -1,48 +1,69 @@
 "use client";
 
 import Link from "next/link";
-import type { ComponentProps } from "react";
-import { Button } from "@/components/ui/button";
+import type { ReactNode } from "react";
+import { cn } from "@/lib/cn";
 
-type BtnProps = ComponentProps<typeof Button>;
-type Variant = "primary" | "ghost" | "outline";
-
-type MarketingButtonProps = Omit<BtnProps, "variant" | "render"> & {
+export type MarketingButtonProps = {
+  variant?: "primary" | "ghost" | "outline";
   href?: string;
-  variant?: Variant;
+  className?: string;
+  children: ReactNode;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>;
+  type?: "button" | "submit";
+  disabled?: boolean;
 };
 
+/**
+ * Restaurant marketing controls only — Forken-style rounded pills, independent of COSS/ui/button.
+ */
 export function MarketingButton({
-  href,
   variant = "primary",
+  href,
   className,
   children,
   onClick,
-  ...rest
+  type = "button",
+  disabled,
 }: MarketingButtonProps) {
-  const v = variant === "primary" ? "default" : variant;
+  const base =
+    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium tracking-wide transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50";
+
+  const styles = {
+    primary:
+      "bg-[var(--accent)] text-[var(--background)] hover:brightness-110 focus-visible:outline-[var(--accent)]",
+    ghost:
+      "bg-white/5 text-[var(--foreground)] hover:bg-white/10 focus-visible:outline-white/40",
+    outline:
+      "border border-[var(--border)] text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent)] focus-visible:outline-[var(--accent)]",
+  };
+
+  const cls = cn(base, styles[variant], className);
+
   if (href) {
     return (
-      <Button
-        className={className}
-        variant={v}
-        render={
-          <Link
-            href={href}
-            onClick={
-              onClick as React.MouseEventHandler<HTMLAnchorElement> | undefined
-            }
-          />
+      <Link
+        href={href}
+        className={cls}
+        onClick={
+          onClick as React.MouseEventHandler<HTMLAnchorElement> | undefined
         }
-        {...rest}
       >
         {children}
-      </Button>
+      </Link>
     );
   }
+
   return (
-    <Button className={className} variant={v} onClick={onClick} {...rest}>
+    <button
+      type={type}
+      className={cls}
+      onClick={
+        onClick as React.MouseEventHandler<HTMLButtonElement> | undefined
+      }
+      disabled={disabled}
+    >
       {children}
-    </Button>
+    </button>
   );
 }
