@@ -1,7 +1,7 @@
 import { SITE } from "@/content/site";
+import { getSiteUrl } from "@/lib/site-url";
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.goletterem.hu";
+const siteUrl = getSiteUrl();
 
 export function restaurantJsonLd() {
   return {

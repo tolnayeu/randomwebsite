@@ -20,8 +20,10 @@ npm start
 
 Másolja [.env.example](.env.example) → `.env.local`:
 
-- `NEXT_PUBLIC_SITE_URL` – kanonikus URL (meta + JSON-LD)
+- `NEXT_PUBLIC_SITE_URL` – kanonikus URL (meta + JSON-LD); éles domain megadása ajánlott
 - `RESERVATION_WEBHOOK_URL` – opcionális webhook a foglalási űrlaphoz
+
+Vercelen ha nincs `NEXT_PUBLIC_SITE_URL`, a deploy automatikus `VERCEL_URL` hostját használjuk (`https://…`), így a kanonikus URL és a metaadatok nem a goletterem.hu-ra mutatnak tévesen. A **Root Directory** legyen a repo gyökere (üres), **Framework Preset**: Next.js.
 
 Az űrlap fejlesztői módban a konzolra is logol.
 

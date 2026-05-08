@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bodoni_Moda, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { restaurantJsonLd } from "@/lib/jsonld";
+import { getSiteUrl } from "@/lib/site-url";
 
 const bodoni = Bodoni_Moda({
   variable: "--font-bodoni",
@@ -15,8 +16,7 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.goletterem.hu";
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
